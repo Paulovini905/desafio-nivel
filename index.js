@@ -1,7 +1,7 @@
-function calcularRanque(vitorias, derrotas) {
-  let saldoVitorias = vitorias - derrotas;
+function calcularNivelRanked(vitorias, derrotas) {
+  const saldoVitorias = vitorias - derrotas;
 
-  let nivel = "";
+  let nivel;
 
   if (vitorias < 10) {
     nivel = "Ferro";
@@ -15,18 +15,12 @@ function calcularRanque(vitorias, derrotas) {
     nivel = "Diamante";
   } else if (vitorias >= 91 && vitorias <= 100) {
     nivel = "Lendário";
-  } else if (vitorias >= 101) {
+  } else {
     nivel = "Imortal";
   }
 
-  return { saldoVitorias, nivel };
+  return `O Herói tem um saldo de ${saldoVitorias} e está no nível de ${nivel}.`;
 }
 
-function exibirResultado(vitorias, derrotas) {
-  let resultado = calcularRanque(vitorias, derrotas); // Chama a função de cálculo
-  console.log(
-    `O Herói tem de saldo de ${resultado.saldoVitorias} está no nível de ${resultado.nivel}`
-  );
-}
-
-exibirResultado(88, 2);
+const resultado = calcularNivelRanked(100, 5);
+console.log(resultado);
